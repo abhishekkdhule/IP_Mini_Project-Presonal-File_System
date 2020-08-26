@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal File System | Academic Details</title>
+    <link rel="stylesheet" href="../CSS/academics_details.css">
+</head>
+<body>
+    <main>
+        <label for="year">Academic Year : </label>
+        <select name="year" id="year">
+            <option value="2015-16">2015-16</option>
+            <option value="2016-17">2016-17</option>
+            <option value="2017-18">2017-18</option>
+            <option value="2018-19">2018-19</option>
+        </select>
+
+        <section>
+            <!-- get the department -->
+            <label for="dept">Department : </label>
+            <select name="dept" id="dept">
+                <option value="INFT">INFT</option>
+                <option value="MECH">MECH</option>
+                <option value="COMP">COMP</option>
+                <option value="INST">INST</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="EXTC">EXTC</option>
+            </select>
+            <!-- get the highest defree -->
+            <label for="degree">Highest Degree Received : </label>
+            <datalist name = "degree" id="degree">
+                <option value="M.E.">M.E.</option>
+                <option value="PhD">Phd</option>
+            </datalist>
+            <!-- get degree Marksheet -->
+            <label for="degree_marksheet">Upload Degree Marksheet</label>
+            <input type="file" name="degree_marksheet" id="degree_marksheet" accept=".pdf">
+
+            <!-- Specialization -->
+            <label for="specialization">Specialization</label>
+            <input type="text" name="specialization" id="specialization">
+
+        </section>
+
+        <section id="research_papers">
+            <table>
+
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="title" id="title" placeholder="Title"></td>
+                    <td><input type="text" name="name_of_journal" id="name_of_journal" placeholder="Name of Journal"></td>
+                    <td><input type="text" name="impact_factor" id="impact_factor" placeholder="Impact Factor"></td>
+                    <td><label for="paper"></label><input type="file" name="paper" accept=".pdf" id="paper"></td>
+
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <th>Name Of Journal</th>
+                    <th>Impact Factor</th>
+                    <th>Document</th>
+
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <!-- phd guidance -->
+            <label for="phd_guidance">PhD Guidance : </label>
+            <select name="phd_guidance" id="phd_guidance">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <!-- phd received in current year -->
+            <label for="received_phd">Received PhD during AC : </label>
+            <select name="received_phd" id="received_phd">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <input type="file" disabled name="phd_doc" id="phd_doc">
+
+            <!-- Designation -->
+            <label for="designation">Designation : </label>
+            <select name="designation" id="designation">
+                <option value="assis">Assistant Professor</option>
+                <option value="assoc">Associate Professor</option>
+            </select>
+            <input type="file" name="designation_doc" id="designation_doc">
+
+            <!-- Association type -->
+            <label for="assoc_type">Association Type : </label>
+            <select name="assoc_type" id="assoc_type">
+                <option value="regular">Regular</option>
+                <option value="contract">Contract</option>
+            </select>
+
+            <!-- Currently associated -->
+            <label for="curr_assoc">Currently Associated : </label>
+            <select name="curr_assoc" id="curr_assoc">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <input type="file" name="curr_assoc_doc" disabled id="curr_assoc_doc">
+
+            <!-- Is HOD -->
+            <label for="hod">Are you the HOD of : </label>
+            <select name="hod" id="hod">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <input type="file" name="hod_doc" disabled id="hod_doc">
+
+        </section>
+        
+
+    </main>
+</body>
+</html>
