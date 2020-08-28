@@ -42,10 +42,7 @@ table{
     border-collapse:collapse;
 }
 input[type=file]{
-    visibility: hidden;
-    width:0;
-    height: 0;
-    position: absolute;
+    display:none;
 }
 td, th{
     border:1px solid black;
@@ -89,4 +86,16 @@ input[type=file]:not(:disabled) +label:hover{
     cursor:pointer;
     user-select: none;
 
+}
+.paper_data{
+    background:#ccc;
+}
+.delete_btn {
+    background:white;
+    border:0;
+}
+.delete_btn i{
+    background:white;
+    cursor:pointer;
+    font-size:1.4em;
 }

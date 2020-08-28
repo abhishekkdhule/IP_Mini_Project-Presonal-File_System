@@ -1,4 +1,4 @@
-window.onload =()=>{
+
     // Restrict the upload of files 
     file_inputs = document.querySelectorAll('[type="file"]')
     let is_hod = document.getElementById('hod')
@@ -25,17 +25,80 @@ window.onload =()=>{
     let impact_factor = document.getElementById('impact_factor')
     let paper = document.getElementById('paper')
     let add_row = document.getElementById('add_row')
-    let srno=0
+  
+    let data=[]
+    let paper_files=[]
     add_row.onclick=()=>{
         console.log(title.value,name_of_journal.value,impact_factor.value,paper.value)
-        console.log()
         row = table.insertRow()
-        row.innerHTML = `<td>${++srno}</td>
+        data.push({'title':title.value,
+                    'name_of_journal':name_of_journal.value,
+                    'impact_factor':impact_factor.value,
+                    'paper_name':paper.value.split('\\')[2]
+                    })
+
+        paper_files.push(paper.files[0])
+
+
+        row.setAttribute('class','paper_data')
+        row.innerHTML = `<td>${data.length}</td>
                         <td>${title.value}</td>
                         <td>${name_of_journal.value}</td>   
                         <td>${impact_factor.value}</td>
-                        <td><a href="${URL.createObjectURL(paper.files[0])}">${paper.value.split('\\')[2]}</a></td>`
-        row.onm                        
+                        <td><a target="_blank" href="${URL.createObjectURL(paper.files[0])}">${paper.value.split('\\')[2]}</a></td>
+                        <td onclick="delete_row(${data.length-1})" class="delete_btn"><i class="fas fa-trash"></i></td>`
+        title.value = name_of_journal.value = impact_factor.value = paper.value ='';
+        console.log(paper_files)
+                            
+    }    
+    function show(){
+        table.innerHTML=''
+        for(let item =0; item < data.length; item++){
+            row = table.insertRow()
+            row.setAttribute('class','paper_data')
+            row.innerHTML = `<td>${item+1}</td>
+            <td>${data[item].title}</td>
+            <td>${data[item].name_of_journal}</td>   
+            <td>${data[item].impact_factor}</td>
+            <td><a target="_blank" href="${URL.createObjectURL(paper_files[item][1])}">${data[item].paper_name}</a></td>
+            <td onclick="delete_row(${item})" class="delete_btn"><i class="fas fa-trash"></i></td>`            
+            
+        }
+        
+        
+    }
+    function delete_row(item){
+        // if(confirm("Do you want to delete?")){
+            
+            data.splice(item,1)
+            paper_files.splice(item,1)
+            show()
+            console.log(data)
+        // }
+
+    }  
+    // Submit Data
+    form = document.getElementById('form')
+    document.getElementById('submit').onclick=()=>{
+        let formdata = new FormData(forms)
+        formdata.append('data',JSON.stringify(data))
+        paper_files.forEach(file => {
+            formdata.append(...file)
+            
+        });
+        console.log(paper_files)
+        let xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = ()=>{
+            if(xmlhttp.status==200 && xmlhttp.readyState==4){
+                document.getElementById('info').innerHTML=xmlhttp.responseText
+            }
+        }
+        xmlhttp.open("post","../PHP/get_papers.php")
+        xmlhttp.send(formdata)
+
+        
+
+        
     }
 
 
@@ -43,4 +106,3 @@ window.onload =()=>{
 
 
 
-}

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal File System | Academic Details</title>
     <link rel="stylesheet" href="../CSS/academics_details.css">
-    <script src="../SCRIPTS/academics_details.js"></script>
+    <script defer src="../SCRIPTS/academics_details.js"></script>
+    <script src="https://kit.fontawesome.com/af81525fff.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
-        <form id="form" action="#">
+        <form method="post" id="form" >
         <h1>Academic Year Details</h1>
         <section>
 
@@ -43,7 +44,7 @@
             </datalist>
             <!-- get degree Marksheet -->
             <input  type="file" name="degree_marksheet" id="degree_marksheet" accept=".pdf">
-            <label class="file_label" for="degree_marksheet">Upload Degree Marksheet</label>
+            <label tabindex="0" class="file_label" for="degree_marksheet">Upload Degree Marksheet</label>
 
             <!-- Specialization -->
             <label for="specialization">Specialization</label>
@@ -52,23 +53,29 @@
         </section>
 
         <section id="research_papers">
-            <table id="paper_table">
-                <tr>
-                    <td>Sr no.</td>
-                    <td><input type="text" name="title" id="title" placeholder="Title"></td>
-                    <td><input type="text" name="name_of_journal" id="name_of_journal" placeholder="Name of Journal"></td>
-                    <td><input type="text" name="impact_factor" id="impact_factor" placeholder="Impact Factor"></td>
-                    <td><input type="file" name="paper" accept=".pdf" id="paper"><label class="file_label" for="paper">Upload</label></td>
-                    <td id=add_row><span>ADD</span></td>
-                </tr>
-                <tr>
-                    <th>Sr.no</th>
-                    <th>Title</th>
-                    <th>Name Of Journal</th>
-                    <th>Impact Factor</th>
-                    <th>Document</th>
-                </tr>
-            </table>
+            <table >
+                <thead>
+
+                    <tr>
+                        <td>Sr no.</td>
+                        <td><input type="text" name="title" id="title" placeholder="Title"></td>
+                        <td><input type="text" name="name_of_journal" id="name_of_journal" placeholder="Name of Journal"></td>
+                        <td><input type="text" name="impact_factor" id="impact_factor" placeholder="Impact Factor"></td>
+                        <td><input type="file" name="paper" accept=".pdf" id="paper"><label class="file_label" for="paper">Upload</label></td>
+                        <td id=add_row><span>ADD</span></td>
+                    </tr>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Title</th>
+                        <th>Name Of Journal</th>
+                        <th>Impact Factor</th>
+                        <th>Document</th>
+                    </tr>
+                <tbody id="paper_table">
+
+                </tbody>
+                </table>
+            </thead>
         </section>
 
         <section>
@@ -86,7 +93,7 @@
                 <option value="yes">Yes</option>
             </select>
             <input type="file" disabled name="phd_doc" id="phd_doc">
-            <label class="file_label" for="phd_doc">Upload PhD Marksheet</label>
+            <label tabindex="0" class="file_label" for="phd_doc">Upload PhD Marksheet</label>
 
             <!-- Designation -->
             <label for="designation">Designation : </label>
@@ -95,7 +102,7 @@
                 <option value="assoc">Associate Professor</option>
             </select>
             <input  type="file" name="designation_doc" id="designation_doc">
-            <label class="file_label" for="designation_doc">Upload Designation Letter</label>
+            <label  tabindex="0" class="file_label" for="designation_doc">Upload Designation Letter</label>
 
             <!-- Association type -->
             <label for="assoc_type">Association Type : </label>
@@ -111,7 +118,7 @@
                 <option value="no">No</option>
             </select>
             <input type="file" name="curr_assoc_doc" disabled id="curr_assoc_doc">
-            <label class="file_label" for="curr_assoc_doc">Upload Releving Letter</label>
+            <label  tabindex="0" class="file_label" for="curr_assoc_doc">Upload Releving Letter</label>
 
             <!-- Is HOD -->
             <label for="hod">Are you the HOD of Department : </label>
@@ -120,10 +127,11 @@
                 <option value="yes">Yes</option>
             </select>
             <input type="file" name="hod_doc" disabled id="hod_doc">
-            <label class="file_label" for="hod_doc">Upload HOD Appointment Letter</label>
+            <label tabindex="0" class="file_label" for="hod_doc">Upload HOD Appointment Letter</label>
 
         </section>
             <input type="button" id="submit" value="Submit">
+            <div id="info"></div>
         </form>
     </main>
 </body>
