@@ -60,7 +60,7 @@
             <td>${data[item].title}</td>
             <td>${data[item].name_of_journal}</td>   
             <td>${data[item].impact_factor}</td>
-            <td><a target="_blank" href="${URL.createObjectURL(paper_files[item][1])}">${data[item].paper_name}</a></td>
+            <td><a target="_blank" href="${URL.createObjectURL(paper_files[item])}">${data[item].paper_name}</a></td>
             <td onclick="delete_row(${item})" class="delete_btn"><i class="fas fa-trash"></i></td>`            
             
         }
@@ -80,12 +80,13 @@
     // Submit Data
     form = document.getElementById('form')
     document.getElementById('submit').onclick=()=>{
-        let formdata = new FormData(forms)
+        let formdata = new FormData(form)
         formdata.append('data',JSON.stringify(data))
-        paper_files.forEach(file => {
-            formdata.append(...file)
+
+        for (let i = 0; i < paper_files.length; i++) {
+            formdata.append('paper'+i,paper_files[i],paper_files[i].name);
             
-        });
+        }
         console.log(paper_files)
         let xmlhttp = new XMLHttpRequest()
         xmlhttp.onreadystatechange = ()=>{
@@ -93,7 +94,7 @@
                 document.getElementById('info').innerHTML=xmlhttp.responseText
             }
         }
-        xmlhttp.open("post","../PHP/get_papers.php")
+        xmlhttp.open("post","../PHP/get_academic_details.php")
         xmlhttp.send(formdata)
 
         
