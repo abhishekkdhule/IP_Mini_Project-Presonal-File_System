@@ -1,0 +1,101 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:Raleway
+}
+body{
+    display: flex;
+    justify-content: center;
+    /* background:red; */
+
+}
+main{
+    
+    width:40%;
+}
+h1{
+    text-align: center;
+    margin-top:1em;
+}
+section{
+    position: relative;
+    margin-bottom:2em;
+    display:flex;
+    flex-direction: column;
+    /* background-color: lightblue; */
+}
+section:nth-child(4){
+    /* overflow-x: scroll; */
+    align-items: center;
+
+}
+
+label{
+    margin:2em 0 .3em;
+}
+select,input{
+    padding:.3em;
+    font-size: medium;
+}
+table{
+    border-collapse:collapse;
+}
+input[type=file]{
+    display:none;
+}
+td, th{
+    border:1px solid black;
+    padding:.5em 1.2em;
+}
+td input{
+    /* border:0; */
+    /* outline:none; */
+    width:fit-content;
+    text-align: center;
+}
+input[type=file] + label{
+    border:1px solid black;
+    width:fit-content;
+    padding:.5em 1.2em;
+    cursor: pointer;
+    border-radius:2em;
+    font-weight:700;
+    margin-top:1em;
+    user-select: none;
+    transition:.4s ease-out background-color;
+}
+input[type=file]:disabled + label{
+    cursor:not-allowed;
+    border-color:#03030360;
+    color:#03030360;
+
+}
+input[type=file]:not(:disabled) +label:hover{
+    background: #303030;
+    color:white;
+
+}
+#add_row{
+    border-radius:.5em;;
+    display: inline-block;
+    background:dodgerblue;
+    margin-left:1em;
+    font-weight:800;
+    color:white;
+    cursor:pointer;
+    user-select: none;
+
+}
+.paper_data{
+    background:#ccc;
+}
+.delete_btn {
+    background:white;
+    border:0;
+}
+.delete_btn i{
+    background:white;
+    cursor:pointer;
+    font-size:1.4em;
+}
