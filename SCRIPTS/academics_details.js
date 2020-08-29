@@ -17,7 +17,13 @@
         document.getElementById('phd_doc').disabled = !document.getElementById('phd_doc').disabled
         document.getElementById('phd_doc').required = !document.getElementById('phd_doc').required
     }
-
+    // Selected File Name
+    file_labels = document.querySelectorAll('.file_label')
+    file_labels.forEach(file_label => {
+        note = document.createElement('span')
+        note.innerHTML="file";
+        // file_label.add(note)
+    });
     //ADD Delete Operations
     let table = document.getElementById('paper_table')
     let title = document.getElementById('title')
