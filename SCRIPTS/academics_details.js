@@ -20,9 +20,17 @@
     // Selected File Name
     file_labels = document.querySelectorAll('.file_label')
     file_labels.forEach(file_label => {
-        note = document.createElement('span')
-        note.innerHTML="file";
-        // file_label.add(note)
+        file_name = document.createElement('span')
+        file_label.insertAdjacentElement("afterend",file_name)
+        file_label.addEventListener('click',()=>{
+            file =  document.getElementById(file_label.getAttribute('for'))
+            file.onchange=()=>{
+            if (!file.disabled){
+                file_label.nextElementSibling.innerHTML =`<a target="_blank" href="${URL.createObjectURL(file.files[0])}">${file.files[0].name}</a>`
+            }
+        }
+        })
+
     });
     //ADD Delete Operations
     let table = document.getElementById('paper_table')
@@ -54,7 +62,9 @@
                         <td><a target="_blank" href="${URL.createObjectURL(paper.files[0])}">${paper.value.split('\\')[2]}</a></td>
                         <td onclick="delete_row(${data.length-1})" class="delete_btn"><i class="fas fa-trash"></i></td>`
         title.value = name_of_journal.value = impact_factor.value = paper.value ='';
-        console.log(paper_files)
+        document.querySelector('[for="paper"]').nextElementSibling.innerHTML ="";
+        // console.log(paper_files)
+        
                             
     }    
     function show(){
