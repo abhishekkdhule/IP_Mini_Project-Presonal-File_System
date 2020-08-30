@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="stylesheet" href="../CSS/general_details.css">
+    <script src="../SCRIPTS/general_details.js" defer></script>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> -->
+    <title>General Details</title>
+</head>
+<body>
+
+    <main>
+
+    <section class="general-info">
+        <h1 class="form-title">General Details</h1>
+        
+        <label for="name">Name<span>*</span></label>
+        <input name ="" type="text" id="name">
+        
+        <label for="DOB">Date of Birth<span>*</span></label>
+        <input type="date" name="" id="DOB">
+        
+        <label for="email">Email address<span>*</span></label>
+        <input type="email" name="" id="email">
+        
+        <div class="PAN" id ="PAN">
+            <label for="PAN">PAN Card no.<span>*</span></label><br>
+            <input type="number" name="" id="PAN">
+            
+            <label for="PANdoc">Upload PAN Card<span>*</span></label>
+            <input type="file" name="" id="PANdoc">
+        </div>
+        
+        <div class="PAN" id ="PAN">
+            <label for="PAN">PAN Card no.<span>*</span></label><br>
+            <input type="number" name="" id="PAN">
+            
+            <label for="PANdoc">Upload PAN Card<span>*</span></label>
+            <input type="file" name="" id="PANdoc">
+        </div>
+    </section> 
+    <hr>
+    <section>
+        <h1>Research paper urls</h1>
+        <div id="research">
+            <div class="urls">
+            <label for="url1">Google Scholars</label>
+            <input type="text" id="url1" name=" " required>
+            </div>
+
+            <div class="urls">
+            <label for="url2">Orcid Profile</label>
+            <input type="text" id="url2" name=" " required>
+            </div>
+
+            <div class="urls">
+            <label for="url3">Scopus</label>
+            <input type="text" id="url3" name=" " required>
+            </div>
+
+            <div class="urls">
+            <label for="url4">Publons</label>
+            <input type="text" id="url4" name=" " required>
+          </div>            
+        </div>
+    </section>
+
+
+    <hr>
+
+
+    <section>
+        <div class="experience">
+        <h1>Experience</h1>
+        <div class="table-responsive">
+        <table class="table table-bordered" id="exp-table">
+            <thead class="">
+            <tr>
+              <th scope="row">1</th>
+              <td><input type="text" name="" id="NOO" placeholder="Name of org" required></td>
+              <td><input type="date" name="" id="DOJ" placeholder="Date of joining" required></td>
+              <td><input type="date" name="" id="DOR" placeholder="Date of releaving" required></td>
+              <td><input type="file" name="" id="exp_file" required ><a href=""><u><label for="exp_file">Upload</label></u></a><button id="addexp">Add</button></td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- <thead class="bg-info"> -->
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name of Organisation</th>
+                    <th scope="col">Date of Joining</th>
+                    <th scope="col">Date of Releaving</th>
+                    <th scope="col">Releaving letter</th>
+                  </tr>
+            <!-- </thead> -->
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </section>
+
+
+    <hr>
+
+
+    <section>
+      <div class="academic">
+        <h1>Academic Qualification</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="acadqual-table">
+                <thead class="">
+                <tr>
+                  <th scope="row">1</th>
+                  <td><input type="text" name="" id="NOC" placeholder="Name of College"></td>
+                  <td><input type="date" name="" id="DOJ_college" placeholder="Date of joining"></td>
+                  <td><input type="date" name="" id="DOL_college" placeholder="Date of leaving"></td>
+                  <td><input type="file" name="" id="final_marksheet" ><a href=""><u><label for="final_marksheet">Upload</label></u></a><button id="addqual">Add</button></td>
+                </tr>
+                </thead>
+                <tbody>
+                    <!-- <thead class="bg-info"> -->
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name of College</th>
+                        <th scope="col">Date of Joining</th>
+                        <th scope="col">Date of Releaving</th>
+                        <th scope="col">Final Year Marksheet</th>
+                      </tr>
+                <!-- </thead> -->
+                </tbody>
+              </table>
+            </div>
+            </div>
+    </section>
+
+
+    <hr>
+
+
+    <section>
+      <div class="extra-curricular">
+        <h1>Extra curricular Qualification</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="extra-table">
+                <thead class="">
+                <tr>
+                  <th scope="row">1</th>
+                  <td><input type="text" name="" id="NOO_extra" placeholder="Name of org"></td>
+                  <td><input type="date" name="" id="DOJ_extra" placeholder="Date of joining"></td>
+                  <td><input type="date" name="" id="DOL_extra" placeholder="Date of releaving"></td>
+                  <td><input type="file" name="" id="qual_extra_file" ><a href=""><u><label for="qual_extra_file">Upload</label></u></a><button id="qual_extra">Add</button></td>
+                </tr>
+                </thead>
+                <tbody>
+                    <!-- <thead class="bg-info"> -->
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name of Organisation</th>
+                        <th scope="col">Date of Joining</th>
+                        <th scope="col">Date of Releaving</th>
+                        <th scope="col">Releaving letter</th>
+                      </tr>
+                <!-- </thead> -->
+                </tbody>
+              </table>
+            </div>
+            </div>
+        
+    </section>
+
+    </main>
+</body>
+</html>
