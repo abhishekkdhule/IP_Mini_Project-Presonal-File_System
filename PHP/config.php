@@ -2,7 +2,7 @@
 $servername="localhost";
 $username="root";
 $password="";
-$dbname="ip_project";
+$dbname="internet_programing";
 
 $conn=mysqli_connect($servername,$username,$password,$dbname);
 if(!$conn){
