@@ -155,10 +155,9 @@ label{
     
 }
 .experience label{
-    background-color: rgb(180, 180, 180);
-    margin:2px 10px;
-
-    /* padding:1px; */
+    width:100%;
+    text-align:center;
+ 
 }
 #addexp{
     margin-top:5%;
@@ -173,9 +172,8 @@ label{
     width:100%;
 }
 .academic label{
-    background-color: rgb(180, 180, 180);
-    margin:2px 10px;
-
+    width:100%;
+    text-align:center;
 }
 #addqual{
     margin-top:5%;
@@ -189,9 +187,8 @@ label{
     width:100%;
 }
 .extra-curricular label{
-    background-color: rgb(180, 180, 180);
-    margin:2px 10px;
-
+    width:100%;
+    text-align:center;
 }
 #qual_extra{
     margin-top:5%;

@@ -39,11 +39,19 @@
         </div>
         
         <div class="PAN" id ="PAN">
-            <label for="PAN">PAN Card no.<span>*</span></label><br>
+            <label for="PAN">AADHAR Card no.<span>*</span></label><br>
             <input type="number" name="" id="PAN">
             
-            <label for="PANdoc">Upload PAN Card<span>*</span></label>
+            <label for="PANdoc">Upload AADHAR Card<span>*</span></label>
             <input type="file" name="" id="PANdoc">
+        </div>
+
+        <div>
+        <label for="joining_date">Date of joining institute<span>*</span></label><br>
+        <input type="date" name="" id="joining_date">
+
+        <label for="joining_letter">Joining Letter(pdf)<span>*</span></label>
+        <input type="file" name="" id="joining_letter">
         </div>
     </section> 
     <hr>
@@ -84,10 +92,11 @@
             <thead class="">
             <tr>
               <th scope="row">1</th>
-              <td><input type="text" name="" id="NOO" placeholder="Name of org" required></td>
+              <td><input type="text" name="" id="NOO" placeholder="Name of Organisation" required></td>
               <td><input type="date" name="" id="DOJ" placeholder="Date of joining" required></td>
               <td><input type="date" name="" id="DOR" placeholder="Date of releaving" required></td>
-              <td><input type="file" name="" id="exp_file" required ><a href=""><u><label for="exp_file">Upload</label></u></a><button id="addexp">Add</button></td>
+              <td><input type="file" name="" id="exp_file" required ><a href=""><label for="exp_file">Upload</label></a></td>
+              <td><button id="addexp">Add</button></td>
             </tr>
             </thead>
             <tbody>
@@ -98,6 +107,7 @@
                     <th scope="col">Date of Joining</th>
                     <th scope="col">Date of Releaving</th>
                     <th scope="col">Releaving letter</th>
+                    <th scope="col"><i class="fas fa-trash"></i></th>
                   </tr>
             <!-- </thead> -->
             </tbody>
@@ -121,7 +131,8 @@
                   <td><input type="text" name="" id="NOC" placeholder="Name of College"></td>
                   <td><input type="date" name="" id="DOJ_college" placeholder="Date of joining"></td>
                   <td><input type="date" name="" id="DOL_college" placeholder="Date of leaving"></td>
-                  <td><input type="file" name="" id="final_marksheet" ><a href=""><u><label for="final_marksheet">Upload</label></u></a><button id="addqual">Add</button></td>
+                  <td><input type="file" name="" id="final_marksheet" ><a href=""><u><label for="final_marksheet">Upload</label></u></a></td>
+                  <td><button id="addqual">Add</button></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -131,7 +142,8 @@
                         <th scope="col">Name of College</th>
                         <th scope="col">Date of Joining</th>
                         <th scope="col">Date of Releaving</th>
-                        <th scope="col">Final Year Marksheet</th>
+                        <th scope="col">Final Marksheet</th>
+                        <th scope="col">..</th>
                       </tr>
                 <!-- </thead> -->
                 </tbody>
@@ -152,10 +164,11 @@
                 <thead class="">
                 <tr>
                   <th scope="row">1</th>
-                  <td><input type="text" name="" id="NOO_extra" placeholder="Name of org"></td>
+                  <td><input type="text" name="" id="NOO_extra" placeholder="Name of Organisation"></td>
                   <td><input type="date" name="" id="DOJ_extra" placeholder="Date of joining"></td>
                   <td><input type="date" name="" id="DOL_extra" placeholder="Date of releaving"></td>
-                  <td><input type="file" name="" id="qual_extra_file" ><a href=""><u><label for="qual_extra_file">Upload</label></u></a><button id="qual_extra">Add</button></td>
+                  <td><input type="file" name="" id="qual_extra_file" ><a href=""><u><label for="qual_extra_file">Upload</label></u></a></td>
+                  <td><button id="qual_extra">Add</button></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -163,9 +176,10 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name of Organisation</th>
-                        <th scope="col">Date of Joining</th>
-                        <th scope="col">Date of Releaving</th>
-                        <th scope="col">Releaving letter</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Certificate</th>
+                        <th scope="col">..</th>
                       </tr>
                 <!-- </thead> -->
                 </tbody>
@@ -174,7 +188,8 @@
             </div>
         
     </section>
-
+    <button>Edit</button>
+    <button style="float:right;">Save</button>
     </main>
 </body>
 </html>
