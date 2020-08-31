@@ -1,5 +1,6 @@
 <?php
     if(isset($_POST)){
+        // Debug
         // echo json_encode($_POST);
         foreach ($_POST as $key => $value) {
             # code...
@@ -16,6 +17,9 @@
             echo "<p><b>$key</b>-:$value</p>";
         }
         // Main Code
+        // Databse Connection
+
+        require('config.php');
         $data = json_decode($_POST['data']);
         $year = $_POST['year'];
         $dept = $_POST['dept'];
@@ -31,9 +35,7 @@
             echo "$key->title - $key->name_of_journal - $key->impact_factor - $key->paper_name  <br>";
         }
         // var_dump($data[1]);
-        // Databse Connection
 
-        require('config.php');
         
 
        

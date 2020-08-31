@@ -78,7 +78,6 @@
             <td>${data[item].impact_factor}</td>
             <td><a target="_blank" href="${URL.createObjectURL(paper_files[item])}">${data[item].paper_name}</a></td>
             <td onclick="delete_row(${item})" class="delete_btn"><i class="fas fa-trash"></i></td>`            
-            
         }
         
         
@@ -111,6 +110,7 @@
             }
         }
         xmlhttp.open("post","../PHP/get_academic_details.php")
+
         xmlhttp.send(formdata)
 
         
