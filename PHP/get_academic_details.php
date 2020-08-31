@@ -33,14 +33,17 @@
         $is_hod = $_POST['hod'] == "yes";
         $received_phd = $_POST['received_phd'] =="yes";
 
+        $loginID = 'Jayesh@2812';
         // Store Papers
+        // PAPERS BASE DIR
         $paper_dir = "D:/IP Mini Project - Personal File System/UPLOADS/Papers/";
+
         for ($i=0; $i < count($data); $i++) { 
 
             $key = $data[$i];
             $paper_url = $paper_dir . $key->paper_name;
             $paper_sql = "INSERT INTO `research_paper`(`Login`, `Title`, `Name_Of_Journal`, `Impact_Factor`, `Publication_Year`, `Paper_Url`)
-                            VALUES ('Jayesh@2812','$key->title','$key->name_of_journal',' $key->impact_factor','$year','$paper_url')";
+                            VALUES ('$loginID','$key->title','$key->name_of_journal',' $key->impact_factor','$year','$paper_url')";
             move_uploaded_file($_FILES['paper'.$i]['tmp_name'],$paper_url);
 
 
@@ -52,6 +55,10 @@
             }
             echo "$key->title - $key->name_of_journal - $key->impact_factor - $paper_url  <br>";
         }
+
+        // Academic Year Details
+        
+
 
         // var_dump($data[1]);
 

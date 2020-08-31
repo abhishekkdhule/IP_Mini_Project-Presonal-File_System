@@ -6,8 +6,9 @@
     /* user-select:none; */
 }
 main{
-    margin:auto;
-    padding:2em 0;
+    margin:0 auto;
+    /* background:red; */
+    /* padding: 0 1em; */
     width:fit-content;
 }
 h1{
@@ -105,14 +106,20 @@ input[type=file]:not(:disabled) +label:hover{
     font-size:1.4em;
 }
 #info{
-    width:300px;
+    width:700px;
     overflow:hidden;
+    word-wrap: break-word;
 }
 @media (max-width:360px){
     section{
-        width:95vw;
+        width:100%;
+        padding:0 .5em;
         position:relative;
         
+        
+    }
+    main{
+        width:100vw;
     }
     section >*:not(datalist){
         display:block;
@@ -124,7 +131,7 @@ input[type=file]:not(:disabled) +label:hover{
     #add_row{
         position:absolute;
         left:50%;
-        transform:translateX(-50%) ;
+        transform:translateX(-60%) ;
         bottom:-2.5em;
         padding:.5em 1.2em;
     }

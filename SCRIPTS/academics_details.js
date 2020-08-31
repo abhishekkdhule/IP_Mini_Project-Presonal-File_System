@@ -105,6 +105,7 @@
         console.log(paper_files)
         let xmlhttp = new XMLHttpRequest()
         xmlhttp.onreadystatechange = ()=>{
+            console.log(xmlhttp.status,xmlhttp.readyState)
             if(xmlhttp.status==200 && xmlhttp.readyState==4){
                 document.getElementById('info').innerHTML=xmlhttp.responseText
             }
