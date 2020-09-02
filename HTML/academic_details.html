@@ -15,18 +15,15 @@
         <section>
 
             <label for="year">Academic Year : </label>
-            <select required name="year" id="year">
+            <select  name="year" id="year">
                 <option value="2015-16">2015-16</option>
                 <option value="2016-17">2016-17</option>
                 <option value="2017-18">2017-18</option>
                 <option value="2018-19">2018-19</option>
             </select>
-        </section>
-            
-        <section>
             <!-- get the department -->
             <label for="dept">Department : </label>
-            <select required name="dept" id="dept">
+            <select  name="dept" id="dept">
                 <option value="INFT">INFT</option>
                 <option value="MECH">MECH</option>
                 <option value="COMP">COMP</option>
@@ -35,7 +32,7 @@
                 <option value="EXTC">EXTC</option>
             </select>
             <!-- get the highest defree -->
-            <label for="degree" >Highest Degree Received : </label>
+            <label for="degree" >Highest Degree Received<span>*</span> : </label>
             <input required type="text" list="degrees" name="degree" id="degree">
 
             <datalist name = "degrees" id="degrees">
@@ -47,25 +44,25 @@
             <label tabindex="0" class="file_label" for="degree_marksheet">Upload Degree Marksheet</label>
 
             <!-- Specialization -->
-            <label for="specialization">Specialization</label>
+            <label for="specialization">Specialization<span>*</span> : </label>
             <input required type="text" name="specialization" id="specialization">
 
         </section>
 
+        <h1>Research Papers Published</h1>
         <section id="research_papers">
             <table >
                 <thead>
 
                     <tr>
-                        <td>Sr no.</td>
+                        <td>Sr No.</td>
                         <td><input type="text"  id="title" placeholder="Title"></td>
                         <td><input type="text"  id="name_of_journal" placeholder="Name of Journal"></td>
                         <td><input type="text"  id="impact_factor" placeholder="Impact Factor"></td>
-                        <td><input type="file"  accept=".pdf" id="paper"><label class="file_label" tabindex="0" for="paper">Upload</label></td>
-                        <td id=add_row><span>ADD</span></td>
+                        <td><input type="file"  accept=".pdf" id="paper"><label class="file_label" tabindex="0" for="paper"><span>Upload</span></label></td>
                     </tr>
                     <tr>
-                        <th>Sr.no</th>
+                        <th>Sr.No</th>
                         <th>Title</th>
                         <th>Name Of Journal</th>
                         <th>Impact Factor</th>
@@ -76,21 +73,22 @@
                 </tbody>
                 </table>
             </thead>
+            <div id="add_row">ADD</div>
         </section>
 
         <section>
             <!-- phd guidance -->
             <label for="phd_guidance">PhD Guidance : </label>
             <select name="phd_guidance" id="phd_guidance">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
             </select>
 
             <!-- phd received in current year -->
             <label for="received_phd">Received PhD during AC : </label>
             <select name="received_phd" id="received_phd">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
             </select>
             <input type="file" disabled name="phd_doc" id="phd_doc">
             <label tabindex="0" class="file_label" for="phd_doc">Upload PhD Marksheet</label>
@@ -114,8 +112,8 @@
             <!-- Currently associated -->
             <label for="curr_assoc">Currently Associated : </label>
             <select name="curr_assoc" id="curr_assoc">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select>
             <input type="file" name="curr_assoc_doc" disabled id="curr_assoc_doc">
             <label  tabindex="0" class="file_label" for="curr_assoc_doc">Upload Releving Letter</label>
@@ -123,8 +121,8 @@
             <!-- Is HOD -->
             <label for="hod">Are you the HOD of Department : </label>
             <select name="hod" id="hod">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
             </select>
             <input type="file" name="hod_doc" disabled id="hod_doc">
             <label tabindex="0" class="file_label" for="hod_doc">Upload HOD Appointment Letter</label>

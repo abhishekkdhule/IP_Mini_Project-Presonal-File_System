@@ -26,18 +26,19 @@
         $dept = $_POST['dept'];
         $degree = $_POST['degree'];
         $specialization = $_POST['specialization'];
+        $designation = $_POST['designation'];
         $assoc_type =$_POST['assoc_type'];
         // Boolean variables
-        $curr_assoc = $_POST['curr_assoc'] == "yes";
-        $phd_guidance = $_POST['phd_guidance'] == "yes";
-        $is_hod = $_POST['hod'] == "yes";
-        $received_phd = $_POST['received_phd'] =="yes";
+        $curr_assoc = $_POST['curr_assoc'] ;
+        $phd_guidance = $_POST['phd_guidance'] ;
+        $is_hod = $_POST['hod'];
+        $received_phd = $_POST['received_phd'] ;
 
         $loginID = 'Jayesh@2812';
+
         // Store Papers
         // PAPERS BASE DIR
         $paper_dir = "D:/IP Mini Project - Personal File System/UPLOADS/Papers/";
-
         for ($i=0; $i < count($data); $i++) { 
 
             $key = $data[$i];
@@ -57,7 +58,42 @@
         }
 
         // Academic Year Details
-        
+        $other_dir = "D:/IP Mini Project - Personal File System/UPLOADS/others/";
+        // currently associated
+        if($curr_assoc == 'No'){
+            $curr_assoc_url = '$other_dir . $_FILES[\'curr_assoc_doc\'][\'name\']';
+            move_uploaded_file($_FILES['curr_assoc_doc']['tmp_name'],$curr_assoc_url);
+        }
+        else{
+            $curr_assoc_url = NULL;
+        }
+        // Is HOD
+        if($is_hod == 'Yes'){
+            $hod_doc_url = '$other_dir . $_FILES[\'hod_doc\'][\'name\']';
+            move_uploaded_file($_FILES['hod_doc']['tmp_name'],$hod_doc_url);
+        }
+        else{
+            $hod_doc_url = NULL;
+        }
+        // Received PhD
+        if($received_phd == 'Yes'){
+            $phd_doc_url = '$other_dir . $_FILES[\'phd_doc\'][\'name\']';
+            move_uploaded_file($_FILES['phd_doc']['tmp_name'],$phd_doc_url);
+        }
+        else{
+            $phd_doc_url = NULL;
+        }
+        // Degree file
+        $degree_url = $other_dir . $_FILES['degree_marksheet']['name'];
+        move_uploaded_file($_FILES['degree_marksheet']['tmp_name'],$degree_url);
+        // Designation file
+        $designation_url = $other_dir . $_FILES['designation_doc']['name'];
+        move_uploaded_file($_FILES['designation_doc']['tmp_name'],$designation_url);
+
+
+
+        $AY_query = "INSERT INTO `$year`( `Login`, `Department`, `Highest_Degree_Title`, `Highest_Degree_Url`, `Specialization`, `Phd_Guidance`, `Phd_Received`, `Phd_Received_Url`, `Designation`, `Designation_url`, `Association_Type`, `Currently_associated`, `Currently_Association_Url`, `is_HOD`, `HOD_Appointment_Letter`)
+         VALUES ('$loginID','$dept','$degree','$degree_url','$specialization','$phd_guidance','$received_phd',$phd_doc_url,'$designation','$designation_url','$assoc_type','$curr_assoc',$curr_assoc_url,'$is_hod',$hod_doc_url";
 
 
         // var_dump($data[1]);

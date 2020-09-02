@@ -39,9 +39,9 @@
     let impact_factor = document.getElementById('impact_factor')
     let paper = document.getElementById('paper')
     let add_row = document.getElementById('add_row')
-  
-    let data=[]
-    let paper_files=[]
+    
+    let data=[]//JSON 
+    let paper_files=[]//Files Object
     add_row.onclick=()=>{
         console.log(title.value,name_of_journal.value,impact_factor.value,paper.value)
         row = table.insertRow()
@@ -59,13 +59,11 @@
                         <td>${title.value}</td>
                         <td>${name_of_journal.value}</td>   
                         <td>${impact_factor.value}</td>
-                        <td><a target="_blank" href="${URL.createObjectURL(paper.files[0])}">${paper.value.split('\\')[2]}</a></td>
-                        <td onclick="delete_row(${data.length-1})" class="delete_btn"><i class="fas fa-trash"></i></td>`
+                        <td><a target="_blank" href="${URL.createObjectURL(paper.files[0])}">View Doc</a>
+                        <span onclick="delete_row(${data.length-1})" class="delete_btn"><i class="fas fa-trash"></i></span></td>`
         title.value = name_of_journal.value = impact_factor.value = paper.value ='';
         document.querySelector('[for="paper"]').nextElementSibling.innerHTML ="";
-        // console.log(paper_files)
-        
-                            
+        // console.log(paper_files)                      
     }    
     function show(){
         table.innerHTML=''
@@ -76,8 +74,8 @@
             <td>${data[item].title}</td>
             <td>${data[item].name_of_journal}</td>   
             <td>${data[item].impact_factor}</td>
-            <td><a target="_blank" href="${URL.createObjectURL(paper_files[item])}">${data[item].paper_name}</a></td>
-            <td onclick="delete_row(${item})" class="delete_btn"><i class="fas fa-trash"></i></td>`            
+            <td><a target="_blank" href="${URL.createObjectURL(paper_files[item])}">View Doc</a>
+            <span onclick="delete_row(${item})" class="delete_btn"><i class="fas fa-trash"></i></span></td>`            
         }
         
         
@@ -100,7 +98,6 @@
 
         for (let i = 0; i < paper_files.length; i++) {
             formdata.append('paper'+i,paper_files[i],paper_files[i].name);
-            
         }
         console.log(paper_files)
         let xmlhttp = new XMLHttpRequest()
