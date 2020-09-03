@@ -95,7 +95,14 @@ function show(table_no){
 }
 
 form = document.querySelector('form')
-document.getElementById('submit').onclick=()=>{
+document.addEventListener('keypress',(e)=>{
+    console.log(e.which)
+    if(e.which === 13){
+        submit()
+    }
+})
+document.getElementById('submit').onclick=submit
+function submit(){
 
     let formdata = new FormData(form)
     // Filling the form objects

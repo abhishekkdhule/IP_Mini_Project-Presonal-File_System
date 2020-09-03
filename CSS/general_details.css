@@ -94,7 +94,7 @@ tbody tr:nth-child(odd){
     background: #303030;
     color:white;
 }
-input:focus ,select:focus ,input[type=file]:not(:disabled) +label:focus{
+input:focus ,select:focus ,label:focus{
     box-shadow:0 0 0 1.5px #303030;
 
 }
@@ -126,7 +126,7 @@ input:focus ,select:focus ,input[type=file]:not(:disabled) +label:focus{
     transition-property: background-color color;
 
 }
-.add_row:hover, #submit:hover{
+.add_row:hover, #submit:hover,.add_row:focus,#submit:focus{
     background: #303030;
     color:white;
 

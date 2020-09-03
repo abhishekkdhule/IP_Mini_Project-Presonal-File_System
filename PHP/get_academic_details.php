@@ -2,20 +2,20 @@
     if(isset($_POST)){
         // Debug
         // echo json_encode($_POST);
-        foreach ($_POST as $key => $value) {
-            # code...
-            $value = json_encode($value);
-            echo "<p><b>$key</b>-:$value</p>";
-        }
+        // foreach ($_POST as $key => $value) {
+        //     # code...
+        //     $value = json_encode($value);
+        //     echo "<p><b>$key</b>-:$value</p>";
+        // }
 
-        echo '<hr>';
-        echo "Files:<br>";
-        echo json_encode($_FILES);
-        foreach ($_FILES as $key => $value) {
-            # code...
-            $value = $value["name"]."  ".$value['error'];
-            echo "<p><b>$key</b>-:$value</p>";
-        }
+        // echo '<hr>';
+        // echo "Files:<br>";
+        // echo json_encode($_FILES);
+        // foreach ($_FILES as $key => $value) {
+        //     # code...
+        //     $value = $value["name"]."  ".$value['error'];
+        //     echo "<p><b>$key</b>-:$value</p>";
+        // }
         // Main Code
         // Databse Connection
 
@@ -61,7 +61,7 @@
         $other_dir = "D:/IP Mini Project - Personal File System/UPLOADS/others/";
         // currently associated
         if($curr_assoc == 'No'){
-            $curr_assoc_url = '$other_dir . $_FILES[\'curr_assoc_doc\'][\'name\']';
+            $curr_assoc_url = $other_dir . '$_FILES[\'curr_assoc_doc\'][\'name\']';
             move_uploaded_file($_FILES['curr_assoc_doc']['tmp_name'],$curr_assoc_url);
         }
         else{
@@ -69,7 +69,7 @@
         }
         // Is HOD
         if($is_hod == 'Yes'){
-            $hod_doc_url = '$other_dir . $_FILES[\'hod_doc\'][\'name\']';
+            $hod_doc_url = $other_dir . $_FILES['hod_doc']['name'];
             move_uploaded_file($_FILES['hod_doc']['tmp_name'],$hod_doc_url);
         }
         else{
@@ -77,7 +77,7 @@
         }
         // Received PhD
         if($received_phd == 'Yes'){
-            $phd_doc_url = '$other_dir . $_FILES[\'phd_doc\'][\'name\']';
+            $phd_doc_url = $other_dir . $_FILES['phd_doc']['name'];
             move_uploaded_file($_FILES['phd_doc']['tmp_name'],$phd_doc_url);
         }
         else{
@@ -92,12 +92,18 @@
 
 
 
-        $AY_query = "INSERT INTO `$year`( `Login`, `Department`, `Highest_Degree_Title`, `Highest_Degree_Url`, `Specialization`, `Phd_Guidance`, `Phd_Received`, `Phd_Received_Url`, `Designation`, `Designation_url`, `Association_Type`, `Currently_associated`, `Currently_Association_Url`, `is_HOD`, `HOD_Appointment_Letter`)
-         VALUES ('$loginID','$dept','$degree','$degree_url','$specialization','$phd_guidance','$received_phd',$phd_doc_url,'$designation','$designation_url','$assoc_type','$curr_assoc',$curr_assoc_url,'$is_hod',$hod_doc_url";
+        $AY_query = "INSERT INTO `$year`(`Srno`, `Login`, `Department`, `Highest_Degree_Title`, `Highest_Degree_Url`, `Specialization`, `Phd_Guidance`, `Phd_Received`, `Phd_Received_Url`, `Designation`, `Designation_url`, `Association_Type`, `Currently_associated`, `Currently_Association_Url`, `is_HOD`, `HOD_Appointment_Letter`)
+         VALUES (1,'$loginID','$dept','$degree','$degree_url','$specialization','$phd_guidance','$received_phd','$phd_doc_url','$designation','$designation_url','$assoc_type','$curr_assoc','$curr_assoc_url','$is_hod','$hod_doc_url')";
 
 
         // var_dump($data[1]);
-
+        if($conn->query($AY_query)){
+            echo "Data Submitted";
+        }
+        else{
+            echo "Data not saved";
+            echo $conn->error;
+        }
 
         
 
