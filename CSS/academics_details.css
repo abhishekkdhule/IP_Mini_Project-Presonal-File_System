@@ -29,10 +29,7 @@ section{
     width:59vw;
     position:relative;
 }
-section::after{
 
-
-}
 section >label{
     display:block;
 
@@ -47,7 +44,7 @@ select,input{
     font-size: medium;
     display:block;
     border:#3030304b solid 1px;
-    border-radius:2em;
+    border-radius:.5em;
     outline:none;
 }
 
