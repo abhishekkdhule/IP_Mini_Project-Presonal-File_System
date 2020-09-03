@@ -52,6 +52,7 @@ label[for="paper"] + span{
     display:inline-block;
     word-wrap: break-word;
     width:100px;
+    
 }
 table{
     border-collapse:collapse;
@@ -76,14 +77,16 @@ td input{
     min-width:7em;
     text-align: center;
 }
-
+td input[type="date"]{
+    width:7em;
+}
 tbody tr:nth-child(even){
     background: #ddd;
 }
 tbody tr:nth-child(odd){
     background: #eee;
 }
-input[type=file] + label{
+.file_label{
     border:1px solid black;
     width:fit-content;
     padding:.5em 1.2em;
@@ -109,7 +112,7 @@ input:focus ,select:focus ,input[type=file]:not(:disabled) +label:focus{
     box-shadow:0 0 0 1.5px #303030;
 
 }
-#add_row{
+.add_row{
     border-radius:5px;
     margin-top:1em;
     padding: .6em 2em;
@@ -124,7 +127,7 @@ input:focus ,select:focus ,input[type=file]:not(:disabled) +label:focus{
     cursor:pointer;
     text-transform: uppercase;
 }
-#add_row , #submit{
+.add_row , #submit{
     font-size:1.25rem;
 
     width:fit-content;    
@@ -137,7 +140,7 @@ input:focus ,select:focus ,input[type=file]:not(:disabled) +label:focus{
     transition-property: background-color color;
 
 }
-#add_row:hover, #submit:hover{
+.add_row:hover, #submit:hover{
     background: #303030;
     color:white;
 
@@ -187,8 +190,6 @@ i:hover{
     h1{
         text-align: center;
         font-size:1.6em;
-    }
-    table{
     }
     td,th{
         padding:.2em .1em;

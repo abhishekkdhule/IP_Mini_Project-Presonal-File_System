@@ -6,72 +6,60 @@
 
     <link rel="stylesheet" href="../CSS/general_details.css">
     <script src="../SCRIPTS/general_details.js" defer></script>
+    <script src="https://kit.fontawesome.com/af81525fff.js" crossorigin="anonymous"></script>
+
     <title>General Details</title>
 </head>
 <body>
 
     <main>
+      <form method="post">
 
     <section class="general-info">
         <h1 class="form-title">General Details</h1>
         
         <label for="name">Name<span>*</span></label>
-        <input name ="" type="text" id="name">
+        <input name ="name" type="text" id="name">
         
         <label for="DOB">Date of Birth<span>*</span></label>
-        <input type="date" name="" id="DOB">
+        <input type="date" name="date_of_birth" id="DOB">
         
         <label for="email">Email address<span>*</span></label>
-        <input type="email" name="" id="email">
+        <input type="email" name="email" id="email">
         
-        <div class="PAN" id ="PAN">
             <label for="PAN">PAN Card no.<span>*</span></label><br>
-            <input type="number" name="" id="PAN">
+            <input type="number" name="PAN_no" id="PAN">
             
-            <label for="PANdoc">Upload PAN Card<span>*</span></label>
-            <input type="file" name="" id="PANdoc">
-        </div>
+            <label class ="file_label" for="PANdoc">Upload PAN Card<span>*</span></label>
+            <input type="file" name="PAN_doc" id="PANdoc">
         
-        <div class="PAN" id ="PAN">
-            <label for="PAN">AADHAR Card no.<span>*</span></label><br>
-            <input type="number" name="" id="PAN">
+            <label for="aadhar">AADHAR Card no.<span>*</span></label>
+            <input type="number" name="aadhar_no" id="aadhar">
             
-            <label for="PANdoc">Upload AADHAR Card<span>*</span></label>
-            <input type="file" name="" id="PANdoc">
-        </div>
+            <label class ="file_label" for="aadhar_doc">Upload AADHAR Card<span>*</span></label>
+            <input type="file" name="aadhar_doc" id="aadhar_doc">
 
-        <div>
         <label for="joining_date">Date of joining institute<span>*</span></label><br>
-        <input type="date" name="" id="joining_date">
+        <input type="date" name="date_of_joining" id="joining_date">
 
-        <label for="joining_letter">Joining Letter(pdf)<span>*</span></label>
-        <input type="file" name="" id="joining_letter">
-        </div>
+        <label class="file_label" for="joining_letter">Joining Letter(pdf)<span>*</span></label>
+        <input type="file" name="date_of_joining_doc" id="joining_letter">
     </section> 
+    
     <hr>
-    <section>
+    <section id="profiles_url">
         <h1>Research paper urls</h1>
-        <div id="research">
-            <div class="urls">
             <label for="url1">Google Scholars</label>
-            <input type="text" id="url1" name=" " required>
-            </div>
+            <input type="text" id="url1" name="google_scholar" >
 
-            <div class="urls">
             <label for="url2">Orcid Profile</label>
-            <input type="text" id="url2" name=" " required>
-            </div>
+            <input type="text" id="url2" name="orcid" >
 
-            <div class="urls">
             <label for="url3">Scopus</label>
-            <input type="text" id="url3" name=" " required>
-            </div>
+            <input type="text" id="url3" name="scopus" >
 
-            <div class="urls">
             <label for="url4">Publons</label>
-            <input type="text" id="url4" name=" " required>
-          </div>            
-        </div>
+            <input type="text" id="url4" name="publons" >
     </section>
 
 
@@ -79,111 +67,102 @@
 
 
     <section>
-        <div class="experience">
         <h1>Experience</h1>
-        <div class="table-responsive">
-        <table class="table table-bordered" id="exp-table">
-            <thead class="">
-            <tr>
-              <th scope="row">1</th>
-              <td><input type="text" name="" id="NOO" placeholder="Name of Organisation" required></td>
-              <td><input type="date" name="" id="DOJ" placeholder="Date of joining" required></td>
-              <td><input type="date" name="" id="DOR" placeholder="Date of releaving" required></td>
-              <td><input type="file" name="" id="exp_file" required ><a href=""><label for="exp_file">Upload</label></a></td>
-              <td><button id="addexp">Add</button></td>
+        <table class="table " id="exp_table">
+            <thead>
+              <tr>
+                <td>Sr No.</td>
+                <td><input type="text"  placeholder="Name of Organisation"></td>
+                <td><input type="date"  placeholder="Date of joining"></td>
+                <td><input type="date"  placeholder="Date of releaving"></td>
+                <td><input type="file"  id="exp_file" accept=".pdf"><label class="file_label" tabindex="0" for="exp_file"><span>Upload</span></label></td>
             </tr>
+            <tr>
+
+              <th>Sr.No</th>
+              <th>Name of Organization</th>
+              <th>Date of joining</th>
+              <th>Date of releaving</th>
+              <th>Document</th>
+            </tr>
+
             </thead>
             <tbody>
-                <!-- <thead class="bg-info"> -->
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name of Organisation</th>
-                    <th scope="col">Date of Joining</th>
-                    <th scope="col">Date of Releaving</th>
-                    <th scope="col">Releaving letter</th>
-                    <th scope="col"><i class="fas fa-trash"></i></th>
-                  </tr>
-            <!-- </thead> -->
             </tbody>
           </table>
-        </div>
-        </div>
+          <div class="add_row">ADD</div>
     </section>
+
 
 
     <hr>
 
 
     <section>
-      <div class="academic">
         <h1>Academic Qualification</h1>
-        <div class="table-responsive">
-            <table class="table table-bordered" id="acadqual-table">
-                <thead class="">
+            <table class="table" id="qual_table">
+              <thead>
                 <tr>
-                  <th scope="row">1</th>
-                  <td><input type="text" name="" id="NOC" placeholder="Name of College"></td>
-                  <td><input type="date" name="" id="DOJ_college" placeholder="Date of joining"></td>
-                  <td><input type="date" name="" id="DOL_college" placeholder="Date of leaving"></td>
-                  <td><input type="file" name="" id="final_marksheet" ><a href=""><u><label for="final_marksheet">Upload</label></u></a></td>
-                  <td><button id="addqual">Add</button></td>
-                </tr>
-                </thead>
+                  <td>Sr No.</td>
+                  <td><input type="text"  placeholder="Name of College"></td>
+                  <td><input type="date"  placeholder="Date of joining"></td>
+                  <td><input type="date"  placeholder="Date of leaving"></td>
+                  <td><input type="file"  id="qual_file" accept=".pdf"><label class="file_label" tabindex="0" for="qual_file"><span>Upload</span></label></td>
+              </tr>
+              <tr>
+  
+                <th>Sr.No</th>
+                <th>Name of College</th>
+                <th>Date of joining</th>
+                <th>Date of leaving</th>
+                <th>Document</th>
+              </tr>
+              </thead>
                 <tbody>
-                    <!-- <thead class="bg-info"> -->
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name of College</th>
-                        <th scope="col">Date of Joining</th>
-                        <th scope="col">Date of Releaving</th>
-                        <th scope="col">Final Marksheet</th>
-                        <th scope="col">..</th>
-                      </tr>
-                <!-- </thead> -->
+ 
                 </tbody>
               </table>
-            </div>
-            </div>
+
+              <div class="add_row" >ADD</div>
     </section>
+
 
 
     <hr>
 
 
     <section>
-      <div class="extra-curricular">
         <h1>Extra curricular Qualification</h1>
-        <div class="table-responsive">
-            <table class="table table-bordered" id="extra-table">
-                <thead class="">
+            <table class="table" id="extra_qual_table">
+
+              <thead>
                 <tr>
-                  <th scope="row">1</th>
-                  <td><input type="text" name="" id="NOO_extra" placeholder="Name of Organisation"></td>
-                  <td><input type="date" name="" id="DOJ_extra" placeholder="Date of joining"></td>
-                  <td><input type="date" name="" id="DOL_extra" placeholder="Date of releaving"></td>
-                  <td><input type="file" name="" id="qual_extra_file" ><a href=""><u><label for="qual_extra_file">Upload</label></u></a></td>
-                  <td><button id="qual_extra">Add</button></td>
-                </tr>
-                </thead>
+                  <td>Sr No.</td>
+                  <td><input type="text"  placeholder="Name of Organization"></td>
+                  <td><input type="date"  placeholder="Date of joining"></td>
+                  <td><input type="date"  placeholder="Date of leaving"></td>
+                  <td><input type="file"  id="extra_qual_file" accept=".pdf"><label class="file_label" tabindex="0" for="extra_qual_file"><span>Upload</span></label></td>
+              </tr>
+              <tr>
+  
+                <th>Sr.No</th>
+                <th>Name of Organization</th>
+                <th>Date of joining</th>
+                <th>Date of leaving</th>
+                <th>Document</th>
+              </tr>
+
                 <tbody>
-                    <!-- <thead class="bg-info"> -->
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name of Organisation</th>
-                        <th scope="col">From</th>
-                        <th scope="col">To</th>
-                        <th scope="col">Certificate</th>
-                        <th scope="col">..</th>
-                      </tr>
-                <!-- </thead> -->
+
                 </tbody>
               </table>
-            </div>
-            </div>
-        
-    </section>
-    <button>Edit</button>
-    <button style="float:right;">Save</button>
+
+              <div class="add_row" >ADD</div>
+              <input type="button" id="submit" value="Submit">
+            </section>
+            <div id="info"></div>
+
+      </form>
     </main>
 </body>
 </html>

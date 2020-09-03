@@ -1,94 +1,127 @@
-var addexp=document.getElementById('addexp');
-var addqual=document.getElementById('addqual');
-var extraqual=document.getElementById('qual_extra')
+// Selected File Names
+    file_labels = document.querySelectorAll('.file_label')
+    file_labels.forEach(file_label => {
+        file_name = document.createElement('span')
+        file_label.insertAdjacentElement("afterend",file_name)
+        file_label.addEventListener('click',()=>{
+            file =  document.getElementById(file_label.getAttribute('for'))
+            file.onchange=()=>{
+            if (!file.disabled){
+                file_label.nextElementSibling.innerHTML =`<a target="_blank" href="${URL.createObjectURL(file.files[0])}">${file.files[0].name}</a>`
+            }
+        }
+        })
 
-addexp.addEventListener('click',()=>{
+    });
+// Table data and respective file objects
 
-    let name_of_org=document.getElementById('NOO');
-    let DOJ=document.getElementById('DOJ');
-    let DOR=document.getElementById('DOR');
-    let exp_file=document.getElementById('exp_file')
-    let str="view";
-    let file=str.link(final_marksheet.value);
+let tables = document.querySelectorAll('table')
+let exp_files = []
+let qual_files = []
+let ex_qual_files = []
+let exp_data = []
+let qual_data = []
+let ex_qual_data = []
+let files_data = [exp_files,qual_files,exp_files ] //Files object array array
+let data = [exp_data,qual_data,ex_qual_data]  
+
+
+add_btns = document.querySelectorAll('.add_row')
+for (let index = 0; index < add_btns.length; index++) {
+    add_btns[index].addEventListener('click',()=>add_row(index))
     
-    console.log(name_of_org.value=="");
+}
+// ADD Delete operations    
 
-    if(name_of_org.value!="" && DOJ.value!="" && DOR.value!="" && exp_file.value!=""){
-        let exp_table=document.getElementById('exp-table');
-        let row=exp_table.insertRow(-1);
-        let srno=row.insertCell(0);
-        let noo=row.insertCell(1);
-        let doj=row.insertCell(2);
-        let dor=row.insertCell(3);
-        let expfile=row.insertCell(4);
-        row.insertCell(5).innerHTML="";
+function add_row (table_no){
+    console.log(table_no)
+    table = tables[table_no].querySelector('tbody')
+    inputs = tables[table_no].querySelectorAll('input')
+    let name = inputs[0]
+    let from = inputs[1]
+    let to   = inputs[2]
+    let file = inputs[3]
 
-        srno.innerHTML=1;
-        noo.innerHTML=name_of_org.value;
-        doj.innerHTML=DOJ.value;
-        dor.innerHTML=DOR.value;
-        expfile.innerHTML=file;
-
-        name_of_org.value=null;
-        DOJ.value=null;
-        DOR.value=null;
-        expfile.value=null;
+    row = table.insertRow()
+    if(file.value == ''){
+        alert("Fill all the fileds to add ")
+        return
     }
-})
+    data[table_no].push({'name':name.value,
+                'from':from.value,
+                'to':to.value,
+                'file':file.value.split('\\')[2]
+                })
 
-addqual.addEventListener('click',()=>{
-    let name_of_college=document.getElementById('NOC');
-    let DOJ_college=document.getElementById('DOJ_college');
-    let DOR_college=document.getElementById('DOL_college');
-    let final_marksheet=document.getElementById('final_marksheet')
+    files_data[table_no].push(file.files[0])
+    console.log(files_data[table_no])
 
-    if(name_of_college.value!="" && DOJ_college.value!="" && DOR_college.value!="" && final_marksheet.value!=""){
-    
-    let acadqual_table=document.getElementById('acadqual-table');
-    let row=acadqual_table.insertRow(-1);
-    let str="view";
-    let file=str.link(final_marksheet.value);
-    row.insertCell(0).innerHTML=1;
-    row.insertCell(1).innerHTML=name_of_college.value;
-    row.insertCell(2).innerHTML=DOJ_college.value;
-    row.insertCell(3).innerHTML=DOR_college.value;
-    row.insertCell(4).innerHTML=file;
-    row.insertCell(5).innerHTML="";
-
-    name_of_college.value=null;
-    DOJ_college.value=null;
-    DOR_college.value=null;
-    final_marksheet.value=null;
-    }
-})
+    row.setAttribute('class','data')
+    row.innerHTML = `<td>${data[table_no].length}</td>
+                    <td>${name.value}</td>
+                    <td>${from.value}</td>   
+                    <td>${to.value}</td>
+                    <td><a target="_blank" href="${URL.createObjectURL(file.files[0])}">View Doc</a>
+                    <span onclick="delete_row(${data[table_no].length-1},${table_no})" class="delete_btn"><i class="fas fa-trash"></i></span></td>`
+    name.value = from.value = to.value = file_name.value ='';
+    tables[table_no].querySelector('label').nextElementSibling.innerHTML ="";
+    // console.log(paper_files)                      
+}    
 
 
-extraqual.addEventListener('click',()=>{
-    
-    let NOO_extra=document.getElementById('NOO_extra');
-    let DOJ_extra=document.getElementById('DOJ_extra');
-    let DOR_extra=document.getElementById('DOL_extra');
-    let qual_extra_file=document.getElementById('qual_extra_file')
+function delete_row(item,table_no){
+    if(confirm("Do you want to delete?")){
 
-    if(NOO_extra.value!="" && DOJ_extra.value!="" && DOR_extra.value!="" && qual_extra_file.value!=""){
-
-    let str="view";
-    let file=str.link(final_marksheet.value);
-
-    let extraqual_table=document.getElementById('extra-table');
-    let row=extraqual_table.insertRow(-1);
-
-    row.insertCell(0).innerHTML=1;
-    row.insertCell(1).innerHTML=NOO_extra.value;
-    row.insertCell(2).innerHTML=DOJ_extra.value;
-    row.insertCell(3).innerHTML=DOR_extra.value;
-    row.insertCell(4).innerHTML=file;
-    row.insertCell(5).innerHTML="";
-
-    NOO_extra.value=null;
-    DOJ_extra.value=null;
-    DOR_extra.value=null;
-    qual_extra_file.value=null;
+        data[table_no].splice(item,1)
+        files_data[table_no].splice(item,1)
+        show(table_no)
+        console.log(data)
     }
 
-})
+}  
+function show(table_no){
+    table = tables[table_no].querySelector('tbody')
+    table.innerHTML=''
+    for(let item =0; item < data[table_no].length; item++){
+        row = table.insertRow()
+        row.setAttribute('class','paper_data')
+        row.innerHTML = `<td>${item+1}</td>
+        <td>${data[table_no][item].name}</td>   
+        <td>${data[table_no][item].from}</td>
+        <td>${data[table_no][item].to}</td>
+        <td><a target="_blank" href="${URL.createObjectURL(files_data[table_no][item])}">View Doc</a>
+        <span onclick="delete_row(${item},${table_no})" class="delete_btn"><i class="fas fa-trash"></i></span></td>`            
+    }
+}
+
+form = document.querySelector('form')
+document.getElementById('submit').onclick=()=>{
+
+    let formdata = new FormData(form)
+    // Filling the form objects
+    for (let i = 0; i < exp_files.length; i++) {
+        formdata.append('exp_file'+i,exp_files[i],exp_files[i].name);
+    }
+    for (let i = 0; i < qual_files.length; i++) {
+        formdata.append('qual_file'+i,qual_files[i],qual_files[i].name);
+    }
+    for (let i = 0; i < ex_qual_files.length; i++) {
+        formdata.append('extra_qual_file'+i,ex_qual_files[i],ex_qual_files[i].name);
+    }
+    // Filling the data
+    formdata.append('exp_data',JSON.stringify(exp_data))
+    formdata.append('qual_data',JSON.stringify(qual_data))
+    formdata.append('ex_qual_data',JSON.stringify(ex_qual_data))
+
+    let xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = ()=>{
+        console.log(xmlhttp.status,xmlhttp.readyState)
+        if(xmlhttp.status==200 && xmlhttp.readyState==4){
+            document.getElementById('info').innerHTML=xmlhttp.responseText
+        }
+    }
+    xmlhttp.open("post","../PHP/general_details.php")
+
+    xmlhttp.send(formdata)
+
+}

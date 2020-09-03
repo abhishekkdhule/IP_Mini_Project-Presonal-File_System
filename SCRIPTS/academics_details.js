@@ -81,13 +81,13 @@
         
     }
     function delete_row(item){
-        // if(confirm("Do you want to delete?")){
+        if(confirm("Do you want to delete?")){
             
             data.splice(item,1)
             paper_files.splice(item,1)
             show()
             console.log(data)
-        // }
+        }
 
     }  
     // Submit Data
@@ -115,9 +115,5 @@
 
         
     }
-
-
-
-
 
 
