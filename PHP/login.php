@@ -1,12 +1,15 @@
 <?php
 include "config.php";
+session_start();
 // echo "Hello";
 // GLOBAL $result1;
 // GLOBAL $sql1;
 // $logo=$_POST["login"];
 // global $login;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    // global $login;
     $login=$_POST["login"];
+    // $_SESSION["id"]=$login;
     $password=$_POST["password"];
     // $login="$login";
     // $password="$password";
@@ -39,6 +42,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
 }
-// $result1=$result1;
-// echo 'global["result1"]';
+
 ?>
