@@ -1,11 +1,11 @@
 // Selected File Names
-    file_labels = document.querySelectorAll('.file_label')
-    file_labels.forEach(file_label => {
+    file_labels = document.querySelectorAll('.file_label')                      //The querySelectorAll() method returns all elements in the document that matches a specified CSS selector(s), as a static NodeList object.
+    file_labels.forEach(file_label => {                                         //The forEach() method calls a function once for each element in an array, in order.
         file_name = document.createElement('span')
-        file_label.insertAdjacentElement("afterend",file_name)
+        file_label.insertAdjacentElement("afterend",file_name)                  //The insertAdjacentElement() method inserts a the specified element into a specified position.
         file_label.addEventListener('click',()=>{
-            file =  document.getElementById(file_label.getAttribute('for'))
-            file.onchange=()=>{
+            file =  document.getElementById(file_label.getAttribute('for'))     //The getAttribute() method returns the value of the attribute with the specified name, of an element.
+            file.onchange=()=>{                                                  //The onchange event occurs when the value of an element has been changed.      
             if (!file.disabled){
                 file_label.nextElementSibling.innerHTML =`<a target="_blank" href="${URL.createObjectURL(file.files[0])}">${file.files[0].name}</a>`
             }
